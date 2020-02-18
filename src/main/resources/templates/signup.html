@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <a href="/login">Login</a>
+      <a href="/">Home</a>
+      <form th:action="@{/logout}" method="post">
+        <button type="submit">logout</button>
+      </form>
+    </header>
+    <h1>
+      Signup Page
+    </h1>
+    <table>
+      <th>Username</th>
+      <th>password</th>
+      <tbody>
+        <tr th:each="key: ${users.keySet()}">
+          <td th:text="${users.get(key).username}"></td>
+          <td th:text="${users.get(key).password}"></td>
+        </tr>
+      </tbody>
+    </table>
+    <hr />
+    <form action="/signup" method="POST">
+      <input name="username" type="text" />
+      <input name="password" type="password" />
+      <button type="submit">Signup</button>
+    </form>
+  </body>
+</html>
